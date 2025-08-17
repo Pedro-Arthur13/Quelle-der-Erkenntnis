@@ -23,7 +23,7 @@ A aplicação foi construída com uma arquitetura de serviços e repositórios, 
   * Feed de atividade recente.
 * **🔔 Notificações:** Alertas visuais para novos pedidos de amizade.
 * **🎨 Interface Moderna:** Design responsivo com Bootstrap e animações interativas.
-* **📄 Páginas Personalizadas:** Página inicial com vídeo de fundo, página "Sobre" e erro 404 amigável.
+* **📄 Páginas Personalizadas:** Página "Sobre" e erro 404 amigável.
 
 ---
 
@@ -102,7 +102,7 @@ pip install Flask Werkzeug unidecode click
 ### 4. Inicialize o banco de dados
 
 ```bash
-flask --app run init-db
+flask init-db
 ```
 
 Mensagem esperada:
@@ -111,7 +111,7 @@ Mensagem esperada:
 ### 5. Execute a aplicação
 
 ```bash
-flask --app run run
+flask run
 ```
 
 A aplicação estará rodando em:
@@ -129,4 +129,4 @@ A aplicação estará rodando em:
 
 ---
 
-Desenvolvido por **Arthur Galahad**
+Desenvolvido por **Arthur Galahad**[https://github.com/Pedro-Arthur13]
