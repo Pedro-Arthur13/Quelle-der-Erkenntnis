@@ -129,4 +129,4 @@ A aplicação estará rodando em:
 
 ---
 
-Desenvolvido por **Arthur Galahad**[https://github.com/Pedro-Arthur13]
+Desenvolvido por [**Arthur Galahad**](https://github.com/Pedro-Arthur13)
