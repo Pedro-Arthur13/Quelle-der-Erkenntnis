@@ -18,11 +18,11 @@ CREATE TABLE users (
 CREATE TABLE friendships (
   requester_id INTEGER NOT NULL,
   addressee_id INTEGER NOT NULL,
-  status TEXT NOT NULL, 
+  status TEXT NOT NULL,
   PRIMARY KEY (requester_id, addressee_id),
   FOREIGN KEY (requester_id) REFERENCES users (id),
   FOREIGN KEY (addressee_id) REFERENCES users (id),
-  CHECK (requester_id != addressee_id) 
+  CHECK (requester_id != addressee_id)
 );
 
 CREATE TABLE authors (
@@ -39,7 +39,7 @@ CREATE TABLE books (
   review TEXT,
   critic_score REAL,
   cover_image_url TEXT,
-  author_id INTEGER NOT NULL, 
+  author_id INTEGER NOT NULL,
   FOREIGN KEY (author_id) REFERENCES authors (id)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE reservations (
   user_id INTEGER NOT NULL,
   book_id INTEGER NOT NULL,
   reservation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  status TEXT NOT NULL, 
+  status TEXT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (id),
   FOREIGN KEY (book_id) REFERENCES books (id)
 );
@@ -105,7 +105,8 @@ INSERT INTO authors (id, name, birth_date, biography) VALUES
   (48, 'Immanuel Kant', '1724-04--22', 'Immanuel Kant ou Emanuel Kant, foi um filósofo alemão e um dos principais pensadores do Iluminismo. Seus abrangentes e sistemáticos trabalhos em epistemologia, metafísica, ética e estética tornaram-no uma das figuras mais influentes da filosofia ocidental moderna.'),
   (49, 'Umberto Eco', '1932-01-05', 'Umberto Eco foi um escritor, filósofo, semiólogo, linguista e bibliófilo italiano de fama internacional. Foi titular da cadeira de Semiótica e diretor da Escola Superior de ciências humanas na Universidade de Bolonha.'),
   (50, 'Niccolò di Bernardo dei Machiavelli', '1469-04-03', 'Niccolò di Bernardo dei Machiavelli foi um filósofo, historiador, poeta, diplomata e músico de origem florentina do Renascimento. É reconhecido como fundador do pensamento e da ciência política moderna, pelo fato de ter escrito sobre o Estado e o governo como realmente são, e não como deveriam ser'),
-  (51, 'Stanisław Lem', '1921-09-12', 'Stanisław Herman Lem foi um proeminente escritor polaco de ficção científica, filosofia e sátira. Ele foi Cavaleiro da Ordem da Águia Branca. Seus livros foram traduzidos para mais de 57 idiomas e venderam mais de 45 milhões de cópias.');
+  (51, 'Stanisław Lem', '1921-09-12', 'Stanisław Herman Lem foi um proeminente escritor polaco de ficção científica, filosofia e sátira. Ele foi Cavaleiro da Ordem da Águia Branca. Seus livros foram traduzidos para mais de 57 idiomas e venderam mais de 45 milhões de cópias.'),
+  (52, 'J. K. Rowling', '1965-07-31', 'Joanne Rowling OBE FRSL, mais conhecida como J. K. Rowling, é uma escritora, roteirista e produtora cinematográfica britânica, notória por escrever a série de livros Harry Potter.');
 
 -- J.R.R. Tolkien (ID: 1)
 INSERT INTO books (title, publication_year, review, critic_score, cover_image_url, author_id) VALUES
@@ -199,7 +200,15 @@ INSERT INTO books (title, publication_year, review, critic_score, cover_image_ur
   ('A Viagem do Peregrino da Alvorada', 1952, 'Edmundo e Lúcia, junto com seu primo, viajam pelos mares de Nárnia a bordo do navio Peregrino da Alvorada.', 9.3, 'https://m.media-amazon.com/images/I/71rHFeIWJKL._UF1000,1000_QL80_.jpg', 14),
   ('O Feiticeiro de Terramar', 1968, 'A história de Ged, um jovem mago que deve corrigir um erro terrível de sua juventude.', 9.4, 'https://m.media-amazon.com/images/I/71-BMB+blgL.jpg', 15),
   ('Le Morte d''Arthur', 1485, 'A compilação clássica das lendas do Rei Arthur, Camelot, e os Cavaleiros da Távola Redonda.', 9.3, 'https://m.media-amazon.com/images/I/81shhONHRBL._UF1000,1000_QL80_.jpg', 26),
-  ('A Guerra dos Tronos', 1996, 'O primeiro livro da série "As Crônicas de Gelo e Fogo", sobre a luta pelo poder entre as casas nobres de Westeros.', 9.7, 'https://m.media-amazon.com/images/I/91+1SUO3vUL.jpg', 35);
+  ('A Guerra dos Tronos', 1996, 'O primeiro livro da série "As Crônicas de Gelo e Fogo", sobre a luta pelo poder entre as casas nobres de Westeros.', 9.7, 'https://m.media-amazon.com/images/I/91+1SUO3vUL.jpg', 35),
+  ('Harry Potter e a Pedra Filosofal', 1997, 'Harry Potter and the Philosophers Stone o primeiro dos sete livros da série de fantasia Harry Potter, escrita por J. K. Rowling. O livro conta a história de Harry Potter, um órfão criado pelos tios que descobre, em seu décimo primeiro aniversário, que é um bruxo.', 9.6, 'https://a-static.mlcdn.com.br/618x463/livro-harry-potter-e-a-pedra-filosofal-capa-dura-edicao-comemorativa-dos-20-anos-da-colecao-harry-potter/magazineluiza/225550000/82b6af40e5078ec116a26f58ba309185.jpg', 52),
+  ('Harry Potter e a Câmara Secreta', 1998, 'Harry Potter and the Chamber of Secrets é um romance de fantasia escrito pela britânica J. K. Rowling. É o segundo livro da série Harry', 9.7, 'https://m.media-amazon.com/images/I/81jbivNEVML._AC_UF1000,1000_QL80_.jpg', 52),
+  ('Harry Potter e o Prisioneiro de Azkaban', 1999, 'Harry Potter and the Prisoner of Azkaban é o terceiro livro dos sete volumes da série de fantasia Harry Potter, tanto em termos cronológicos como em ordem de publicação, da autora inglesa J. K. Rowling. Foi primeiramente publicado no Reino Unido pela editora londrina Bloomsbury em 1999.', 9.7, 'https://m.media-amazon.com/images/I/81yhVdW-MWL._AC_UF1000,1000_QL80_.jpg', 52),
+  ('Harry Potter e o Cálice de Fogo', 2000, 'Harry Potter and the Goblet of Fire é o quarto livro dos sete volumes da série de fantasia Harry Potter, tanto em termos cronológicos como em ordem de publicação, da autora inglesa J. K. Rowling. Foi primeiramente publicado no Reino Unido e nos Estados Unidos em 2000.', 9.7, 'https://m.media-amazon.com/images/I/81nTLN-kz7L._AC_UF1000,1000_QL80_.jpg', 52),
+  ('Harry Potter e a Ordem da Fênix', 2003, 'Harry Potter and the Order of the Phoenix é o quinto livro dos sete volumes da série de fantasia Harry Potter, tanto em termos cronológicos como em ordem de publicação, da autora inglesa J. K. Rowling.', 9.7, 'https://m.media-amazon.com/images/I/81d6ESyPZwL._AC_UF1000,1000_QL80_.jpg', 52),
+  ('Harry Potter e o Enigma do Príncipe', 2005, 'Harry Potter and the Half-Blood Prince é um romance de fantasia escrito pela britânica J. K. Rowling, sendo o sexto dos sete volumes da série Harry Potter.', 9.7, 'https://booksofwonder.com/cdn/shop/products/HPPB6_1024x1024.jpg?v=1559937836', 52),
+  ('Harry Potter e as Relíquias da Morte', 2007, 'Harry Potter and the Deathly Hallows é um romance de fantasia escrito pela britânica J. K. Rowling. É o sétimo e último livro da série Harry Potter.', 9.7, 'https://rocco.com.br/wp-content/uploads/2022/12/9788532531827.jpg', 52),
+  ('Harry Potter e a Criança Amaldiçoada', 2016, 'Sempre foi difícil ser Harry Potter e não é mais fácil agora que ele é um sobrecarregado funcionário do Ministério da Magia, marido e pai de três crianças em idade escolar. Enquanto Harry lida com um passado que se recusa a ficar para trás, seu filho mais novo, Alvo, deve lutar com o peso de um legado de família que ele nunca quis. À medida que passado e presente se fundem de forma ameaçadora, ambos, pai e filho, aprendem uma incômodaverdade: às vezesas trevas vêmde lugares inesperados.', 9.7, 'https://m.media-amazon.com/images/I/91omuC4vc9L._AC_UF1000,1000_QL80_.jpg', 52);
 
 -- The Witcher (ID: 30)
 INSERT INTO books (title, publication_year, review, critic_score, cover_image_url, author_id) VALUES
