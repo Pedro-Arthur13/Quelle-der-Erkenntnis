@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %}Bem-vindo à Quelle der Erkenntnis{% endblock %}
+
+{% block content %}
+<div class="welcome-page-container p-0">
+    
+    <section class="hero-section">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://static.videezy.com/system/resources/previews/000/044/946/original/bookcase.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-center">
+            <h1 class="display-2 mb-4" data-aos="fade-down">Quelle der Erkenntnis</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="200">
+                Em um mundo de ruído, encontre clareza. O conhecimento não é um destino, é uma jornada.
+            </p>
+        </div>
+    </section>
+
+    <section class="mission-section text-center py-5">
+        <div class="container">
+            <h2 data-aos="fade-up">Nossa Missão</h2>
+            <p class="mission-text mx-auto" data-aos="fade-up" data-aos-delay="100">
+                A verdadeira educação transcende o diploma. É a forja do pensamento crítico, da empatia e da coragem cívica. Diante de uma cultura que desvaloriza a profundidade, a Quelle der Erkenntnis ergue-se como um bastião. Aqui, cada livro é uma porta, cada debate uma ferramenta, e cada leitor um arquiteto de um futuro mais justo e consciente.
+            </p>
+        </div>
+    </section>
+
+    <section class="pillars-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Os Pilares do Conhecimento</h2>
+            <div class="row g-4 justify-content-center">
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="pillar-card">
+                        <div class="pillar-card-inner">
+                            <div class="pillar-card-front" style="background-image: url('https://cdn.britannica.com/88/149188-050-DC34842F/Plato-portrait-bust-original-Capitoline-Museums-Rome.jpg');">
+                                <div class="pillar-card-title">Platão</div>
+                            </div>
+                            <div class="pillar-card-back">
+                                <h4>Platão</h4>
+                                <p class="pillar-quote">"A coisa mais indispensável a um homem é reconhecer o uso que deve fazer do seu próprio conhecimento."</p>
+                                <span class="pillar-concept">Filosofia Clássica</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pillar-card">
+                        <div class="pillar-card-inner">
+                            <div class="pillar-card-front" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a2/Shakespeare.jpg');">
+                                <div class="pillar-card-title">Shakespeare</div>
+                            </div>
+                            <div class="pillar-card-back">
+                                <h4>William Shakespeare</h4>
+                                <p class="pillar-quote">"Sabemos o que somos, mas não sabemos o que poderemos ser."</p>
+                                <span class="pillar-concept">Literatura & Humanismo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pillar-card">
+                        <div class="pillar-card-inner">
+                            <div class="pillar-card-front" style="background-image: url('https://katechesis.com.br/wp-content/uploads/2020/04/santo-tomas-de-aquino.jpg');">
+                                <div class="pillar-card-title">São Tomás de aquino</div>
+                            </div>
+                            <div class="pillar-card-back">
+                                <h4>Santo Tomás de Aquino</h4>
+                                <p class="pillar-quote">"A humildade é o primeiro degrau para a sabedoria."</p>
+                                <span class="pillar-concept">Santo & Doutor da Igreja</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section text-center py-5">
+        <div class="container" data-aos="zoom-in">
+            <h2>A Sabedoria de Eras a Um Clique de Distância.</h2>
+            <p class="lead mt-3 mb-4">Sua jornada pelo conhecimento começa agora.</p>
+            <a href="{{ url_for('main.list_books') }}" class="btn btn-primary btn-lg">
+                <i class="bi bi-journals"></i> Explorar o Acervo
+            </a>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

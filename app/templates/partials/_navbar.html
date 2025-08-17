@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom" data-bs-theme="dark" style="position: relative; z-index: 1030;">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('main.index') }}">
+        <i class="bi bi-book-half"></i> Quelle der Erkenntnis
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main.list_books') }}">Livros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main.list_authors') }}">Autores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main.users_list') }}">Encontrar Leitores</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main.about') }}">Sobre</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav">
+          {% if g.user %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i> 
+                {{ g.user.username }}
+                {% if g.friend_requests %}
+                <span class="badge rounded-pill bg-danger ms-1">
+                  {{ g.friend_requests|length }}
+                  <span class="visually-hidden">pedidos de amizade</span>
+                </span>
+                {% endif %}
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="{{ url_for('main.profile', username=g.user.username) }}">Meu Perfil</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('main.my_reservations') }}">Minhas Reservas</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{{ url_for('main.logout') }}">Sair</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a href="{{ url_for('main.login') }}" class="btn btn-outline-light me-2">Login</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url_for('main.register') }}" class="btn btn-primary">Registrar</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+</nav>

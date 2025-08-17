@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Minhas Reservas{% endblock %}
+
+{% block content %}
+<h1 class="mb-4"><i class="bi bi-bookmark-check-fill"></i> Minhas Reservas</h1>
+
+<div class="list-group">
+    {% for reservation in reservations %}
+    <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+            <h5 class="mb-1"><a href="{{ url_for('main.book_detail', book_id=reservation.book_id) }}">{{ reservation.title }}</a></h5>
+            <small class="text-muted">Reservado em: {{ reservation.reservation_date.strftime('%d/%m/%Y %H:%M') }}</small>
+        </div>
+        <div>
+            {% if reservation.status == 'Ativa' %}
+                <span class="badge text-bg-info me-2">Ativa</span>
+                <form action="{{ url_for('main.return_book', reservation_id=reservation.id) }}" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-sm btn-success">Devolver</button>
+                </form>
+            {% else %}
+                <span class="badge text-bg-secondary">Concluída</span>
+            {% endif %}
+        </div>
+    </div>
+    {% else %}
+    <p class="text-center">Você ainda não reservou nenhum livro.</p>
+    {% endfor %}
+</div>
+{% endblock %}

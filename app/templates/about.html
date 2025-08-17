@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Sobre o Criador{% endblock %}
+
+{% block content %}
+<div class="about-container my-5">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-5 text-center" data-aos="fade-right">
+            <div class="about-photo-wrapper">
+                <img src="https://kathrynbarrett.com/wp-content/uploads/2013/01/mr-darcy-matthew-macfadyen-eyes.jpeg"  alt="Com certeza essa é a foto muito real e verossímil do Criador" class="about-photo img-fluid">
+            </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+            <h1 class="display-4">Arthur Galahad</h1>
+            <p class="lead text-primary mb-4">A Mente por Trás da Quelle der Erkenntnis</p>
+            <p class="about-text">
+                Sou o criador e desenvolvedor deste projeto, que nasceu de uma convicção simples, mas essencial: em um mundo marcado pela desinformação e pela pressa, o acesso ao conhecimento profundo e ao pensamento crítico deve estar ao alcance de todos.
+            </p>
+            <p class="about-text">A Quelle der Erkenntnis foi concebida como uma biblioteca online voltada para promover aprendizado, reflexão e acesso livre a obras que podem transformar a forma como enxergamos o mundo.</p>
+            <p class="about-text">
+                Este site foi construído do zero utilizando Python com o microframework Flask, e os dados são gerenciados por um banco de dados SQLite. A interface foi estilizada com HTML, CSS, e um toque de JavaScript para criar uma experiência de usuário moderna e responsiva.
+            </p>
+            <div class="mt-4">
+                <h4 class="text-primary">Tecnologias Utilizadas:</h4>
+                <div class="skills-tags">
+                    <span class="skill-tag" data-aos="fade-up" data-aos-delay="300">Python</span>
+                    <span class="skill-tag" data-aos="fade-up" data-aos-delay="400">Flask</span>
+                    <span class="skill-tag" data-aos="fade-up" data-aos-delay="500">SQLite</span>
+                    <span class="skill-tag" data-aos="fade-up" data-aos-delay="600">HTML5</span>
+                    <span class="skill-tag" data-aos="fade-up" data-aos-delay="700">CSS3</span>
+                    <span class="skill-tag" data-aos="fade-up" data-aos-delay="800">JavaScript</span>
+                </div>
+            </div>
+            <div class="mt-5">
+                <h4 class="text-primary">Conecte-se comigo:</h4>
+                <div class="social-links">
+                    <a href="https://github.com/Pedro-Arthur13" target="_blank" class="social-icon" data-aos="zoom-in" data-aos-delay="900"><i class="bi bi-github"></i></a>
+                    <a href="https://www.linkedin.com/in/pedro-arthur13/" target="_blank" class="social-icon" data-aos="zoom-in" data-aos-delay="1000"><i class="bi bi-linkedin"></i></a>
+                    <a href="mailto:arthur.albuquerque@ifpb.edu.br" class="social-icon" data-aos="zoom-in" data-aos-delay="1100"><i class="bi bi-envelope-fill"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

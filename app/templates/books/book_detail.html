@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{ book.cover_image_url or 'https://via.placeholder.com/400x600.png?text=Sem+Capa' }}" class="img-fluid rounded-start" alt="Capa de {{ book.title }}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body p-4">
+                <h1 class="card-title">{{ book.title }}</h1>
+                <h4 class="text-muted">{{ book.author_name }} ({{ book.publication_year }})</h4>
+                
+                <div class="d-flex align-items-center my-3">
+                    <span class="badge rounded-pill 
+                        {% if book.status == 'Disponível' %} text-bg-success
+                        {% else %} text-bg-warning {% endif %} fs-6 me-3">
+                        {{ book.status }}
+                    </span>
+                    <span class="text-warning">
+                        <i class="bi bi-star-fill"></i> Nota da Crítica: <strong>{{ "%.1f"|format(book.critic_score) if book.critic_score else 'N/A' }}</strong>
+                    </span>
+                </div>
+
+                <h5 class="mt-4">Resenha</h5>
+                <p>{{ book.review or 'Nenhuma resenha disponível.' }}</p>
+
+                <hr class="my-4">
+
+                <div class="d-flex gap-2 flex-wrap">
+                    {% if g.user %}
+                        {% if book.status == 'Disponível' %}
+                        <form action="{{ url_for('main.reserve_book', book_id=book.id) }}" method="POST">
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-calendar-check"></i> Agendar Empréstimo</button>
+                        </form>
+                        {% else %}
+                        <button class="btn btn-secondary" disabled><i class="bi bi-hourglass-split"></i> Indisponível</button>
+                        {% endif %}
+                    {% else %}
+                        <a href="{{ url_for('main.login') }}" class="btn btn-primary"><i class="bi bi-box-arrow-in-right"></i> Faça login para agendar</a>
+                    {% endif %}
+                    
+                    {% if g.user %}
+                    <a href="{{ url_for('main.edit_book', book_id=book.id) }}" class="btn btn-secondary"><i class="bi bi-pencil"></i> Editar</a>
+                    <form action="{{ url_for('main.delete_book', book_id=book.id) }}" method="POST" class="form-delete d-inline">
+                        <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Excluir</button>
+                    </form>
+                    {% endif %}
+                </div>
+                <a href="{{ url_for('main.list_books') }}" class="btn btn-link mt-3 px-0">Voltar ao Acervo</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
