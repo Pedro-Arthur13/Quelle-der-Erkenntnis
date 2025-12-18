@@ -77,8 +77,8 @@ A aplicação foi construída com uma arquitetura de serviços e repositórios, 
 ### 1. Clone o repositório
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
-cd <NOME_DA_PASTA_DO_PROJETO>
+git clone https://github.com/Pedro-Arthur13/Quelle-der-Erkenntnis.git
+cd Quelle-der-Erkenntnis
 ```
 
 ### 2. Crie e ative um ambiente virtual
@@ -129,4 +129,4 @@ A aplicação estará rodando em:
 
 ---
 
-Desenvolvido por [**Arthur Galahad**](https://github.com/Pedro-Arthur13)
+Desenvolvido por [**Arthur**](https://github.com/Pedro-Arthur13)
